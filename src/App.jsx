@@ -27,11 +27,11 @@ export const App = () => {
   const [searchValue, setSearchValue] = useState('');
 
   const filtredProduct = products.filter((product) => {
-    const { name, ownerId } = product;
+    const { name, users } = product;
     const normalizedValue = searchValue.toLowerCase();
 
     return (
-      (selectedUser === 'All' || ownerId === selectedUser)
+      (selectedUser === 'All' || users.id === selectedUser)
       && name.toLowerCase().includes(normalizedValue)
     );
   });
